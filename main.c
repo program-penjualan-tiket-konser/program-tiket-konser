@@ -83,8 +83,9 @@ void jalankanApp(){
 		system("cls");
 		printf("\t\t-------------------------------------------\n");
 		printf("\t\t--      PROGRAM PENJUALAN TIKET KONSER   --\n");
-		printf("\t\t-------------------------------------------\n");
-		printf("\t\t==============[ MENU KONSER ]==============\n");
+		printf("\t\t----------------=-=-=-=-=-=----------------\n");
+		printf("\t\t*******************************************\n");
+		printf("\t\t=         ====[ MENU KONSER ]====         =\n");
 		printf("\t\t              1. Beli Tiket                \n");
 		printf("\t\t              2. Lihat Tiket               \n");
 		printf("\t\t              3. Cari Kode Tiket           \n");
@@ -98,8 +99,9 @@ void jalankanApp(){
 
 				int tutup = 1;
                 printf("\t\t\n");
-				printf("\t\t----------------------------------------------\n");
+				printf("\t\t-------------------------------------------------------\n");
 				printf("\t\t==========[ PENJUALAN TIKET KONSER YOUTFEST ]==========\n\n");
+				printf("\t\t          [        HARGA TIKET 250.000      ]          \n\n");
 
 
 				while(tutup==1){
