@@ -41,12 +41,26 @@ int main(){
 	return 0;
 }
 
-
 void jalankanApp(){
 
     int i;
 	DataPembelian data[20];
+
+    FILE *load;
+    load=fopen ("datapenjualan.txt", "r");
+    fread(&data, sizeof(data), 1, load);
+    fclose(load);
+
+
+    FILE *loadjum;
+    loadjum=fopen("jumlahdata.txt", "r");
+    fscanf(loadjum,"%d",&i);
+    fclose(loadjum);
+
+
     int input = 0;
+
+
 	while(input!=5){
 		system("cls");
 		printf("\t\t-------------------------------------------\n");
@@ -66,44 +80,33 @@ void jalankanApp(){
 				int tutup = 1;
                 printf("\t\t\n");
 				printf("\t\t----------------------------------------------\n");
-				printf("\t\t==========[ PENJUALAN TIKET KONSER ]==========\n\n");
+				printf("\t\t==========[ PENJUALAN TIKET KONSER YOUTFEST ]==========\n\n");
 
 
 				while(tutup==1){
-
 					int kembali;
-					printf("Masukan 0 untuk kembali , dan 1 untuk Lanjut:");
+					printf("\t\tMasukan 0 untuk kembali, dan 1 untuk Lanjut:");
 					scanf(" %d", &kembali);
 
 
 					if(kembali==0){
-					    printf("inputnp");
+
                         tutup=0;
 
 					}else{
 					    i=i+1;
 					    	system("cls");
                     printf("\t\t\n");
-				printf("\t\t----------------------------------------------\n");
-				printf("\t\t==========[ PENJUALAN TIKET KONSER ]==========\n\n");
-		   		printf("\t\t--                Menu Kelas                --\n");
-		  		printf("\t\t----------------------------------------------\n");
-		    	printf("\t\t:   Kode Kelas  :   Kelas   :       Harga    :\n");
-		    	printf("\t\t:_______________:___________:________________:\n");
-		    	printf("\t\t:       1       :   VVIP    : Rp 1.000.000,00:\n");
-		    	printf("\t\t:       2       :   VIP     : Rp   750.000,00:\n");
-		    	printf("\t\t:       3       : Festival  : Rp   500.000,00:\n");
-		    	printf("\t\t:       4       :  Biasa    : Rp   250.000,00:\n");
-		    	printf("\t\t______________________________________________\n\n\n\n");
+
 					printf("\t\t=============[ DATA PEMBELIAN %d ]=============\n", i);
 
 					printf("\t\tKode Tiket Konser      : %d\n", i);
 					printf("\t\tNama                   : ");
 					    scanf(" %[^\n]s", &data[i].nama_pembeli);
-                        printf("\n\n\t\t==============[ PILIHAN KONSER ]==============\n\n");
-				    printf("\t\t1. Jumat      [Sky Garden]\n");
-				    printf("\t\t2. Sabtu      [LXXY]\n");
-				    printf("\t\t3. Minggu     [Boshe]\n");
+                    printf("\n\n\t\t=====[ PILIHAN HARI KONSER YOUTFEST ]=====\n\n");
+				    printf("\t\t1. Jumat      [Yout Fest 1]\n");
+				    printf("\t\t2. Sabtu      [Yout Fest 2]\n");
+				    printf("\t\t3. Minggu     [Yout Fest 3]\n");
 				    printf("\t\t______________________________________________\n");
 				    do{
 				    	printf("\t\tMasukkan nomor hari : ");
@@ -114,40 +117,22 @@ void jalankanApp(){
 				    if(data[i].no_hari==1){
 				        data[i].no_konser=1;
 			            strcpy(data[i].nama_hari,"Jumat");
-			            strcpy(data[i].nama_konser,"Sky Garden");
+			            strcpy(data[i].nama_konser,"Youtfest 1");
 				    }else if(data[i].no_hari==2){
 			            data[i].no_konser=2;
 			            strcpy(data[i].nama_hari,"Sabtu");
-				        strcpy(data[i].nama_konser,"LXXY");
+				        strcpy(data[i].nama_konser,"Youtfest 2");
 			        }else{
 			            data[i].no_konser=3;
 			            strcpy(data[i].nama_hari,"Minggu");
-				        strcpy(data[i].nama_konser,"Boshe");
+				        strcpy(data[i].nama_konser,"Youtfest 3");
 				    }
 				    printf("\t\t%d.%s      [%s]\t\n" , data[i].no_konser, data[i].nama_hari, data[i].nama_konser);
 				    printf("\t\t______________________________________________\n");
 				    printf("\t\tPilihan hari  Anda      : %s\n" , data[i].nama_hari);
 				    printf("\t\tPilihan konser  Anda    : %s\n" , data[i].nama_konser);
-					printf("\t\tPilihan kelas konser    : ");
-					scanf("%d", &data[i].kelas_tiket);
-					switch(data[i].kelas_tiket){
-						case 1:{
-							data[i].harga_tiket = 1000000;
-							break;
-						}
-						case 2:{
-							data[i].harga_tiket = 750000;
-							break;
-						}
-						case 3:{
-							data[i].harga_tiket = 500000;
-							break;
-						}
-						case 4:{
-							data[i].harga_tiket = 250000;
-							break;
-						}
-					}
+
+                    data[i].harga_tiket = 250000;
 					printf("\t\tJumlah pembelian tiket  : ");
 					scanf("%d", &data[i].jumlah_tiket);
 					data[i].total_harga = data[i].jumlah_tiket * data[i].harga_tiket;
@@ -164,6 +149,22 @@ void jalankanApp(){
 					}
 
 				}
+
+				FILE *outfile;
+				outfile = fopen("datapenjualan.txt", "w");
+
+				fwrite  (&data, sizeof(data), 1, outfile);
+
+				fclose(outfile);
+
+
+				///
+				FILE *jum;
+				jum = fopen("jumlahdata.txt", "w");
+
+				fprintf(jum,"%d",i);
+
+				fclose(jum);
 				break;
 			}
 			case 2:{
@@ -188,6 +189,8 @@ void jalankanApp(){
 			}
 		}
 	}
+
+
 }
 void registers()
 {

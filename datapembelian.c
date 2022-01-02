@@ -5,9 +5,6 @@
 void HistoryTransaksi(DataPembelian data[],int jumlah_pembelian){
     FILE* struk;
     struk = fopen("struk.txt", "w");
-
-
-
 	int i;
 	int tutup=1;
 	while(tutup==1){
@@ -27,9 +24,6 @@ void HistoryTransaksi(DataPembelian data[],int jumlah_pembelian){
 
 				printf("\t\tNama Konser            : %s\n", data[i].nama_konser);
                 fprintf(struk,"Nama Konser            : %s\n", data[i].nama_konser);
-
-				printf("\t\tPilihan kelas konser   : %d\n", data[i].kelas_tiket);
-				fprintf(struk,"Pilihan kelas konser   : %d\n", data[i].kelas_tiket);
 
 				printf("\t\tHarga Per-Tiket        : %d\n", data[i].harga_tiket);
 				fprintf(struk,"Harga Per-Tiket        : %d\n", data[i].harga_tiket);
