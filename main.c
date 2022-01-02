@@ -11,7 +11,6 @@
 int main(){
     char x;
     do {
-
     int pilihan;
     printf("\n");
     printf("\t\t---------------------------------------------\n");
@@ -46,7 +45,7 @@ int main(){
 void jalankanApp(){
 
     int i;
-	DataPembelian data[20]; //adt data integer
+	DataPembelian data[20];
     int input = 0;
 	while(input!=5){
 		system("cls");
@@ -68,6 +67,25 @@ void jalankanApp(){
                 printf("\t\t\n");
 				printf("\t\t----------------------------------------------\n");
 				printf("\t\t==========[ PENJUALAN TIKET KONSER ]==========\n\n");
+
+
+				while(tutup==1){
+
+					int kembali;
+					printf("Masukan 0 untuk kembali , dan 1 untuk Lanjut:");
+					scanf(" %d", &kembali);
+
+
+					if(kembali==0){
+					    printf("inputnp");
+                        tutup=0;
+
+					}else{
+					    i=i+1;
+					    	system("cls");
+                    printf("\t\t\n");
+				printf("\t\t----------------------------------------------\n");
+				printf("\t\t==========[ PENJUALAN TIKET KONSER ]==========\n\n");
 		   		printf("\t\t--                Menu Kelas                --\n");
 		  		printf("\t\t----------------------------------------------\n");
 		    	printf("\t\t:   Kode Kelas  :   Kelas   :       Harga    :\n");
@@ -77,13 +95,12 @@ void jalankanApp(){
 		    	printf("\t\t:       3       : Festival  : Rp   500.000,00:\n");
 		    	printf("\t\t:       4       :  Biasa    : Rp   250.000,00:\n");
 		    	printf("\t\t______________________________________________\n\n\n\n");
-				while(tutup==1){
-					i=i+1;
 					printf("\t\t=============[ DATA PEMBELIAN %d ]=============\n", i);
+
 					printf("\t\tKode Tiket Konser      : %d\n", i);
 					printf("\t\tNama                   : ");
-					scanf(" %[^\n]s", &data[i].nama_pembeli);
-					printf("\n\n\t\t==============[ PILIHAN KONSER ]==============\n\n");
+					    scanf(" %[^\n]s", &data[i].nama_pembeli);
+                        printf("\n\n\t\t==============[ PILIHAN KONSER ]==============\n\n");
 				    printf("\t\t1. Jumat      [Sky Garden]\n");
 				    printf("\t\t2. Sabtu      [LXXY]\n");
 				    printf("\t\t3. Minggu     [Boshe]\n");
@@ -144,6 +161,8 @@ void jalankanApp(){
 					printf("\t\tKembalian Uang          : %d\n", data[i].kembalian);
 					printf("\t\tUntuk memasukkan data lagi Enter 1 [MAX 20 DATA], untuk menutup menu Enter 0:");
 					scanf("%d", &tutup);
+					}
+
 				}
 				break;
 			}
