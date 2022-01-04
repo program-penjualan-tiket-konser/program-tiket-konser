@@ -127,11 +127,11 @@ void jalankanApp(){
 					    scanf(" %[^\n]s", &data[i].nama_pembeli);
                     printf("\n\n\t\t=====[ PILIHAN HARI KONSER YOUTFEST ]=====\n\n");
 
-				    printf("\t\t1. Jumat      [Yout Fest 1] %d",jumlahtiketjumat);
+				    printf("\t\t1. Jumat      [Yout Fest 1] stok = %d",jumlahtiketjumat);
 				    printf("\n");
-				    printf("\t\t2. Sabtu      [Yout Fest 2] %d", jumlahtiketsabtu);
+				    printf("\t\t2. Sabtu      [Yout Fest 2] stok = %d", jumlahtiketsabtu);
 				    printf("\n");
-				    printf("\t\t3. Minggu     [Yout Fest 3] %d", jumlahtiketminggu);
+				    printf("\t\t3. Minggu     [Yout Fest 3] stok = %d", jumlahtiketminggu);
 				    printf("\n");
 				    printf("\t\t______________________________________________\n");
 				    do{
